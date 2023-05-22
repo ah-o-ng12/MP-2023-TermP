@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace 'androidtown.org.mp2023termp'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "androidtown.org.mp2023termp"
