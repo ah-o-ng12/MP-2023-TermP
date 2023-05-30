@@ -33,8 +33,8 @@ class Tab1Fragment : Fragment() {
     }
 
     private fun readDataFromFirebase() {
-        val termTextView = binding.firstWordTerm
-        val meaningTextView = binding.firstWordMeaning
+        val termTextView = binding.WordTerm
+        val meaningTextView = binding.WordMeaning
 
         database.child("word").child("1").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
