@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DeleteActivity"
+    >
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="257dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="64dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/dt_pass"
+        android:layout_width="251dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="132dp"
+        android:ems="10"
+        android:hint="[삭제하기]를 입력해주세요"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/logo"
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintStart_toStartOf="@+id/logo"
+        app:layout_constraintTop_toTopOf="@+id/logo" />
+
+    <Button
+        android:id="@+id/delete_btn"
+        android:layout_width="206dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/blue_btn"
+        android:text="탈퇴하기"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toEndOf="@+id/dt_pass"
+        app:layout_constraintStart_toStartOf="@+id/dt_pass"
+        app:layout_constraintTop_toBottomOf="@+id/dt_pass" />
+
+    <TextView
+        android:layout_width="270dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="20dp"
+        android:text="아이디 삭제를 위해 [삭제하기]를 입력해주세요."
+        app:layout_constraintEnd_toEndOf="@+id/delete_btn"
+        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintStart_toStartOf="@+id/delete_btn"
+        app:layout_constraintTop_toBottomOf="@+id/delete_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
