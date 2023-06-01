@@ -13,7 +13,7 @@ class QuestionResult : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = QuestionResultBinding.inflate(layoutInflater)
-        setContentView(R.layout.question_result)
+        setContentView(binding.root)
 
         val score = intent.getIntExtra("score", 0)
         val totalSize = intent.getIntExtra("totalSize", 0)
@@ -27,4 +27,5 @@ class QuestionResult : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
 }

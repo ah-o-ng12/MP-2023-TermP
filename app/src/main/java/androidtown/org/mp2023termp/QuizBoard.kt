@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import androidtown.org.mp2023termp.databinding.QuizBoardBinding
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
@@ -25,6 +24,7 @@ class QuizBoard : AppCompatActivity() , View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = QuizBoardBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         //질문 리스트 가져오기
         questionList = QuestionData.getQuestion()
@@ -85,9 +85,9 @@ class QuizBoard : AppCompatActivity() , View.OnClickListener {
     private fun setColor(opt: Int, color: Int){
         when(opt){
             1 -> binding.option1Text.background = ContextCompat.getDrawable(this, color)
-            2 -> binding.option1Text.background = ContextCompat.getDrawable(this, color)
-            3 -> binding.option1Text.background = ContextCompat.getDrawable(this, color)
-            4 -> binding.option1Text.background = ContextCompat.getDrawable(this, color)
+            2 -> binding.option2Text.background = ContextCompat.getDrawable(this, color)
+            3 -> binding.option3Text.background = ContextCompat.getDrawable(this, color)
+            4 -> binding.option4Text.background = ContextCompat.getDrawable(this, color)
         }
     }
 
@@ -99,7 +99,7 @@ class QuizBoard : AppCompatActivity() , View.OnClickListener {
             .setTitle(alertTitle)
             .setMessage("정답: $correctAnswer")
             .setPositiveButton("OK"){
-                dialogInterface, i ->
+                dialogInterface, _ ->
                 dialogInterface.dismiss() //창 닫기
             }
             .setCancelable(false)
@@ -118,16 +118,16 @@ class QuizBoard : AppCompatActivity() , View.OnClickListener {
         val question = questionList[currentPosition - 1]
 
         //상태바 위치
-        binding.pogressBar.progress = currentPosition
+        binding.progressBar.progress = currentPosition
 
         //상태바 최대값
-        binding.pogressBar.max = questionList.size
+        binding.progressBar.max = questionList.size
 
         //현재 위치 표시
-        binding.proaressText.text = getString(R.string.count_label, currentPosition, questionList.size)
+        binding.progaressText.text = getString(R.string.count_label, currentPosition, questionList.size)
 
         //질문 표시
-        binding.queestionText.text = question.question
+        binding.questionText.text = question.question
 
         //답변 표시
         binding.option1Text.text = question.option_one
@@ -157,7 +157,7 @@ class QuizBoard : AppCompatActivity() , View.OnClickListener {
 
         //답변 텍스트뷰 설정
         for (op in optionList) {
-            op.setTextColor(Color.parseColor("#55151"))
+            op.setTextColor(Color.parseColor("#555151"))
             op.background = ContextCompat.getDrawable(this, R.drawable.option_background)
             op.typeface = Typeface.DEFAULT
         }
@@ -174,7 +174,7 @@ class QuizBoard : AppCompatActivity() , View.OnClickListener {
         //위치 담기
         selectedOption = opt
 
-        view.setTextColor((Color.parseColor("#5FOOFF")))
+        view.setTextColor((Color.parseColor("#5f00ff")))
         view.background = ContextCompat.getDrawable(this, R.drawable.selected_option_background)
         view.typeface = Typeface.DEFAULT_BOLD
     }
@@ -184,9 +184,9 @@ class QuizBoard : AppCompatActivity() , View.OnClickListener {
         if (view != null) {
             when(view.id){
                 R.id.option1_text -> selectedOptionStyle(binding.option1Text, 1)
-                R.id.option1_text -> selectedOptionStyle(binding.option1Text, 2)
-                R.id.option1_text -> selectedOptionStyle(binding.option1Text, 3)
-                R.id.option1_text -> selectedOptionStyle(binding.option1Text, 4)
+                R.id.option2_text -> selectedOptionStyle(binding.option2Text, 2)
+                R.id.option3_text -> selectedOptionStyle(binding.option3Text, 3)
+                R.id.option4_text -> selectedOptionStyle(binding.option4Text, 4)
             }
         }
     }
