@@ -124,7 +124,7 @@ class QuizBoard : AppCompatActivity() , View.OnClickListener {
         binding.progressBar.max = questionList.size
 
         //현재 위치 표시
-        binding.progaressText.text = getString(R.string.count_label, currentPosition, questionList.size)
+        binding.progressText.text = getString(R.string.count_label, currentPosition, questionList.size)
 
         //질문 표시
         binding.questionText.text = question.question
@@ -187,6 +187,12 @@ class QuizBoard : AppCompatActivity() , View.OnClickListener {
                 R.id.option2_text -> selectedOptionStyle(binding.option2Text, 2)
                 R.id.option3_text -> selectedOptionStyle(binding.option3Text, 3)
                 R.id.option4_text -> selectedOptionStyle(binding.option4Text, 4)
+            }
+
+            // Update score based on selected option
+            val question = questionList[currentPosition - 1]
+            if (selectedOption == question.correct_answer) {
+                score++
             }
         }
     }
