@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/logout"
+        android:title="로그아웃"
+        app:showAsAction="never">
+    </item>
+
+    <item
+        android:id="@+id/change_pw"
+        android:title="비밀번호 변경"
+        app:showAsAction="never">
+    </item>
+
+    <item
+        android:id="@+id/delete_id"
+        android:title="회원탈퇴"
+        app:showAsAction="never">
+
+    </item>
+
+
+
+</menu>

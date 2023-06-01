@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/first_tab"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:icon="@drawable/question_icon"
+        android:title="Question"
+       />
+    <item
+        android:id="@+id/second_tab"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:icon="@drawable/free_icon"
+        android:title="Free"
+        />
+
+    <item
+        android:id="@+id/third_tab"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:icon="@drawable/home_icon"
+        android:title="Home">
+    </item>
+
+    <item
+        android:id="@+id/fourth_tab"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:icon="@drawable/qna_icon"
+        android:title="QnA">
+    </item>
+
+    <item
+        android:id="@+id/fifth_tab"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:icon="@drawable/word_icon"
+        android:title="Word">
+    </item>
+
+</menu>
