@@ -30,7 +30,7 @@
         app:showAsAction="always"
         android:enabled="true"
         android:icon="@drawable/qna_icon"
-        android:title="QnA">
+        android:title="quiz">
     </item>
 
     <item
