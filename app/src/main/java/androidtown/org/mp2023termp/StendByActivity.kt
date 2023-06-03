@@ -4,21 +4,21 @@ package androidtown.org.mp2023termp
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidtown.org.mp2023termp.databinding.ActivityWaitingBinding
+import androidtown.org.mp2023termp.databinding.ActivityStendbyBinding
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class StendByActivity: AppCompatActivity (){
-    private var bind: ActivityWaitingBinding? = null
+    private var bind: ActivityStendbyBinding? = null
     private val binding get() = bind!!
     private lateinit var auth: FirebaseAuth
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bind = ActivityWaitingBinding.inflate(layoutInflater)
+        bind = ActivityStendbyBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = FirebaseAuth.getInstance()
 
