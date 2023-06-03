@@ -3,13 +3,14 @@ package androidtown.org.mp2023termp
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidtown.org.mp2023termp.databinding.ActivityWaitingBinding
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
-class WatingActivity: AppCompatActivity (){
+class StendByActivity: AppCompatActivity (){
     private var bind: ActivityWaitingBinding? = null
     private val binding get() = bind!!
     private lateinit var auth: FirebaseAuth
@@ -37,6 +38,7 @@ class WatingActivity: AppCompatActivity (){
 
         binding.startBtn.setOnClickListener{
 
+            Toast.makeText(this, "환영합니다 "+name+"님 ", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, HomeActivity::class.java)
             intent.putExtra("name",name)
             intent.putExtra("score",score)

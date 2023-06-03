@@ -33,12 +33,13 @@ class HomeActivity: AppCompatActivity(){
         name = intent.getStringExtra("name").toString()
         score = intent.getStringExtra("score").toString()
 
-        Toast.makeText(this, "환영합니다 "+name+"님 ",Toast.LENGTH_SHORT).show()
+
 
         val freeFragment = FreeFragment()
         val wordFragment = WordFragment()
         val quizFragment = QuizFragment()
         val homeFragment = HomeFragment()
+        val questionFragment = QuestionFragment()
 
         changeFragment(homeFragment)
 
@@ -58,6 +59,10 @@ class HomeActivity: AppCompatActivity(){
 
                 R.id.home_tab ->{
                     changeFragment(homeFragment)
+                }
+
+                R.id.question_tab ->{
+                    changeFragment(questionFragment)
                 }
 
             }

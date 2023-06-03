@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
 
-                        val intent = Intent(this,WatingActivity::class.java)
+                        val intent = Intent(this,StendByActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {

@@ -34,11 +34,8 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".FreeBulletinBoard"
+            android:name=".FreeBoard"
             android:exported="true">
-           <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
 
         <activity
@@ -54,7 +51,12 @@
         <activity android:name=".HomeActivity"></activity>
         <activity android:name=".ChangeActivity"></activity>
         <activity android:name=".DeleteActivity"></activity>
-        <activity android:name=".WatingActivity"></activity>
+        <activity android:name=".StendByActivity"></activity>
+        <activity android:name=".BulletinActivity"></activity>
+        <activity android:name=".FreeBoardWriting"></activity>
+        <activity android:name=".QuestionBoardWriting"></activity>
+        <activity android:name=".QuestionBoard"></activity>
+
     </application>
 
 </manifest>
