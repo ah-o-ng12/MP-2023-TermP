@@ -7,10 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.google.firebase.database.*
 
 class Board : AppCompatActivity() {
@@ -68,6 +71,7 @@ class Board : AppCompatActivity() {
 
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val titleTextView: TextView = view.findViewById(R.id.title)
+            val imageView: ImageView = view.findViewById(R.id.imageView)
 
             init {
                 itemView.setOnClickListener {
@@ -78,6 +82,7 @@ class Board : AppCompatActivity() {
                         val intent = Intent(context, BulletinActivity::class.java).apply {
                             putExtra("title", bulletin.title)
                             putExtra("content", bulletin.content)
+                            putExtra("image", bulletin.image)
                         }
                         context.startActivity(intent)
                     }
@@ -88,6 +93,14 @@ class Board : AppCompatActivity() {
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             val viewHolder = holder as ViewHolder
             viewHolder.titleTextView.text = bulletins[position].title
+
+            var imageUrl = bulletins[position].image
+            if (imageUrl != null) {
+                Glide.with(holder.itemView.context)
+                    .load(imageUrl)
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .into(viewHolder.imageView)
+            }
         }
 
         override fun getItemCount(): Int {
