@@ -67,7 +67,7 @@ class RegisterActivity: AppCompatActivity() {
 
                                         val uid = auth.currentUser!!.uid
 
-                                        hashMap["uid"] = uid
+
                                         hashMap["email"] = email
                                         hashMap["name"] = name
 
@@ -75,6 +75,7 @@ class RegisterActivity: AppCompatActivity() {
                                         // uid email name 실시간 데이터베이스에 저장
                                         val myRef = database.getReference("users")
                                         myRef.child(uid).setValue(hashMap)
+                                        myRef.child(uid).child("score").setValue(0)
 
 
                                         finish() // 로그인 페이지로 이동

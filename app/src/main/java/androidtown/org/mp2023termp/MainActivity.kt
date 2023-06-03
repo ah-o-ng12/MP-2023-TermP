@@ -35,10 +35,12 @@ class MainActivity : AppCompatActivity() {
             val id = binding.lgId.text.toString().trim()
             val pw = binding.lgPass.text.toString().trim()
 
+
             auth.signInWithEmailAndPassword(id, pw) // 로그인 실행 코드
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        val intent = Intent(this, HomeActivity::class.java)
+
+                        val intent = Intent(this,WatingActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {
