@@ -7,31 +7,31 @@ object QuestionData {
 
         val q1 = Question(
             1,
-            "1 + 1? ",
-        "1",
-            "2",
-            "3",
-            "4",
-            2
+            "What does 'HTML' stand for? ",
+        "HyperText Markup Language",
+            "High-level Programming Language",
+            "Home Tool Management Language",
+            "Hyperlink Text Manipulation Language",
+            1
         )
 
         val q2 = Question(
             1,
-            "2 + 2? ",
-            "2",
-            "3",
-            "4",
-            "5",
+            "what does 'SQL' stand for? ",
+            "System Query Language",
+            "Simple Query Language",
+            "Structured Query Language",
+            "Standard Query Language",
             3
         )
 
         val q3 = Question(
             1,
-            "3 + 3? ",
-            "2",
-            "4",
-            "6",
-            "8",
+            "What is the most basic unit of data in a computer? ",
+            "Megabyte",
+            "Byte",
+            "Bit",
+            "Gigabyte",
             3
         )
 
