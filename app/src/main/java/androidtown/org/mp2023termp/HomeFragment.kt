@@ -9,7 +9,10 @@ import android.annotation.SuppressLint
 import android.content.Context.MODE_NO_LOCALIZED_COLLATORS
 
 import android.widget.*
+import androidtown.org.mp2023termp.databinding.FragmentHomeBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.*
 import java.io.FileInputStream
 import java.io.FileOutputStream
@@ -21,46 +24,56 @@ class HomeFragment : Fragment() {
     lateinit var str: String
     lateinit var calendarView: CalendarView
     lateinit var updateBtn: Button
-    lateinit var deleteBtn:Button
-    lateinit var saveBtn:Button
+    lateinit var deleteBtn: Button
+    lateinit var saveBtn: Button
     lateinit var diaryTextView: TextView
-    lateinit var diaryContent:TextView
-    lateinit var title:TextView
+    lateinit var diaryContent: TextView
+    lateinit var title: TextView
     lateinit var contextEditText: EditText
     private lateinit var auth: FirebaseAuth
+    private lateinit var binding: FragmentHomeBinding  // binding 변수 추가
+    private lateinit var name: String
+    private lateinit var score: String
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         auth = FirebaseAuth.getInstance()
+        val database = Firebase.database("https://mp-tp-f0d38-default-rtdb.firebaseio.com/")
+        val myRef = database.getReference("users")
+        val uid: String? = auth.currentUser?.uid
 
+        if (uid != null) {
+            myRef.child(uid).get().addOnSuccessListener { dataSnapshot ->
+                name = dataSnapshot.child("name").value.toString().trim()
+                score = dataSnapshot.child("score").value.toString().trim()
 
+                title.text = "$name 님의 달력"
+            }
+        }
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentHomeBinding.inflate(inflater, container, false) // bind 변수 초기화
 
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        val view = binding.root
 
-        // binding 을 사용하면 일일히 binding. 을 사용해야 함. 여기서는 미리 한번 선언하는 방식이 더 편함
-        calendarView= view.findViewById(R.id.calendarView)
-        diaryTextView= view.findViewById(R.id.diaryTextView)
-        saveBtn= view.findViewById(R.id.saveBtn)
-        deleteBtn= view.findViewById(R.id.deleteBtn)
-        updateBtn= view.findViewById(R.id.updateBtn)
-        diaryContent= view.findViewById(R.id.diaryContent)
-        title= view.findViewById(R.id.title)
-        contextEditText= view.findViewById(R.id.contextEditText)
+        calendarView = binding.calendarView
+        diaryTextView = binding.diaryTextView
+        saveBtn = binding.saveBtn
+        deleteBtn = binding.deleteBtn
+        updateBtn = binding.updateBtn
+        diaryContent = binding.diaryContent
+        title = binding.title
+        contextEditText = binding.contextEditText
 
-        runBlocking{
-            userID = (activity as HomeActivity).name
-        }
-
-        title.text = userID+"의 달력"
-
+        title.text = "$userID 님의 달력"
 
         calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
             diaryTextView.visibility = View.VISIBLE
@@ -87,7 +100,7 @@ class HomeFragment : Fragment() {
 
         return view
 
-        } // onCreateView
+    } // onCreateView
 
     private fun checkDay(cYear: Int, cMonth: Int, cDay: Int, userID: String) {
         //저장할 파일 이름설정
@@ -168,11 +181,4 @@ class HomeFragment : Fragment() {
             e.printStackTrace()
         }
     }
-
-
-} // class
-
-
-
-
-
+}
