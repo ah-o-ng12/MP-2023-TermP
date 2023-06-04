@@ -73,7 +73,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:text="비밀번호 변경"
-        android:background="@drawable/blue_btn"
+        android:background="@drawable/red_btn"
         android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="@+id/go_register_btn"
         app:layout_constraintStart_toStartOf="@+id/go_register_btn"

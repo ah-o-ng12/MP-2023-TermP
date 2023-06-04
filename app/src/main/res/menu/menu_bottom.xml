@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/first_tab"
+        android:id="@+id/question_tab"
         app:showAsAction="always"
         android:enabled="true"
         android:icon="@drawable/question_icon"
         android:title="Question"
        />
     <item
-        android:id="@+id/second_tab"
+        android:id="@+id/free_tab"
         app:showAsAction="always"
         android:enabled="true"
         android:icon="@drawable/free_icon"
@@ -18,7 +18,7 @@
         />
 
     <item
-        android:id="@+id/third_tab"
+        android:id="@+id/home_tab"
         app:showAsAction="always"
         android:enabled="true"
         android:icon="@drawable/home_icon"
@@ -26,15 +26,15 @@
     </item>
 
     <item
-        android:id="@+id/fourth_tab"
+        android:id="@+id/quiz_tab"
         app:showAsAction="always"
         android:enabled="true"
         android:icon="@drawable/qna_icon"
-        android:title="QnA">
+        android:title="quiz">
     </item>
 
     <item
-        android:id="@+id/fifth_tab"
+        android:id="@+id/word_tab"
         app:showAsAction="always"
         android:enabled="true"
         android:icon="@drawable/word_icon"

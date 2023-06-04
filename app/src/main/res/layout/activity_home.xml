@@ -8,39 +8,10 @@
     tools:context=".HomeActivity"
     >
 
-    <RelativeLayout
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="3dp"
-        android:background="#FFFDFD">
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Soft Talk"
-            android:textColor="#777676"
-            android:textSize="40dp" />
-
-        <ImageView
-            android:id="@+id/search"
-            android:layout_width="56dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="201dp"
-            android:layout_toRightOf="@id/title"
-            app:srcCompat="@drawable/search_icon" />
-
-
-    </RelativeLayout>
-
-
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/header"
         android:id="@+id/container">
 
     </FrameLayout>
