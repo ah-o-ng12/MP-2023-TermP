@@ -30,5 +30,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="다시 하기"
+        android:background="@drawable/blue_btn"
+        android:textColor="@color/white"
         android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/finish_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="끝내기"
+        android:background="@drawable/red_btn"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
 </LinearLayout>

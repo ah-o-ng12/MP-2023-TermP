@@ -10,12 +10,13 @@ import android.content.Context.MODE_NO_LOCALIZED_COLLATORS
 
 import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.*
 import java.io.FileInputStream
 import java.io.FileOutputStream
 
 
 class HomeFragment : Fragment() {
-    var userID: String = ""
+    private var userID: String = ""
     lateinit var fname: String
     lateinit var str: String
     lateinit var calendarView: CalendarView
@@ -29,11 +30,11 @@ class HomeFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         auth = FirebaseAuth.getInstance()
-        userID = (activity as HomeActivity).name
+
 
     }
 
@@ -54,7 +55,9 @@ class HomeFragment : Fragment() {
         title= view.findViewById(R.id.title)
         contextEditText= view.findViewById(R.id.contextEditText)
 
-
+        runBlocking{
+            userID = (activity as HomeActivity).name
+        }
 
         title.text = userID+"의 달력"
 

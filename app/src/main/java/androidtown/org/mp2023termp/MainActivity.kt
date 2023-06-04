@@ -3,6 +3,8 @@ package androidtown.org.mp2023termp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import androidtown.org.mp2023termp.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -15,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     private var bind: ActivityMainBinding? = null
     private val binding get() = bind!!
     private lateinit var auth: FirebaseAuth
-
+    private var doubleBackToExit = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -40,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
 
-                        val intent = Intent(this,StendByActivity::class.java)
+                        val intent = Intent(this,HomeActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {
@@ -58,4 +60,24 @@ class MainActivity : AppCompatActivity() {
         } // 비밀번호를 잊어 먹었을 시 이용
 
     }
+
+    //뒤로가기로 앱이 종료되는 것을 방지하는 코드
+    override fun onBackPressed() {
+        if (doubleBackToExit) {
+            finishAffinity()
+        } else {
+            Toast.makeText(this, "종료하시려면 뒤로가기를 한번 더 눌러주세요.", Toast.LENGTH_SHORT).show()
+            doubleBackToExit = true
+            runDelayed(1500L) {
+                doubleBackToExit = false
+            }
+        }
+    }
+
+
+    //뒤로 가기를 1.5초 이내로 2번 연속 눌러야 종료
+    private fun runDelayed(millis: Long, function: () -> Unit) {
+        Handler(Looper.getMainLooper()).postDelayed(function, millis)
+    }
+
 }

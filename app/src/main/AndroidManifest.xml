@@ -51,7 +51,9 @@
         <activity android:name=".HomeActivity"></activity>
         <activity android:name=".ChangeActivity"></activity>
         <activity android:name=".DeleteActivity"></activity>
-        <activity android:name=".StendByActivity"></activity>
+        <activity android:name=".StandByActivity"></activity>
+
+
         <activity android:name=".BulletinActivity"></activity>
         <activity android:name=".FreeBoardWriting"></activity>
         <activity android:name=".QuestionBoardWriting"></activity>
