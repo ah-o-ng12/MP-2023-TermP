@@ -42,12 +42,17 @@ class HomeActivity: AppCompatActivity(){
         val database = Firebase.database("https://mp-tp-f0d38-default-rtdb.firebaseio.com/")
 
         val myRef = database.getReference("users")
-        val uid = auth.currentUser!!.uid
+        //val uid = auth.currentUser!!.uid
+        val uid: String? = auth.currentUser?.uid
 
 
-        myRef.child(uid).get().addOnSuccessListener{
-            name = it.child("name").value.toString().trim()
-            score = it.child("score").value.toString().trim()
+
+
+        if (uid != null) {
+            myRef.child(uid).get().addOnSuccessListener{
+                name = it.child("name").value.toString().trim()
+                score = it.child("score").value.toString().trim()
+            }
         }
 
 
